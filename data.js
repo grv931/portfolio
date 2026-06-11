@@ -18,6 +18,21 @@ const portfolioData = {
         icon: "logo-linkedin"
       },
       {
+        name: "Leetcode",
+        url: "https://leetcode.com/grv931",
+        icon: "logo-leetcode"
+      },
+      {
+        name: "Kaggle",
+        url: "https://www.kaggle.com/kumargaurav931",
+        icon: "logo-kaggle"
+      },
+      {
+        name: "Credly",
+        url: "https://www.credly.com/users/grv931/edit/badges/credly",
+        icon: "logo-credly"
+      },
+      {
         name: "github",
         url: "https://github.com/grv931",
         icon: "logo-github"
@@ -75,7 +90,7 @@ const portfolioData = {
       role: "Coordinator & Graphic Designer",
       logo: "./images/ecell.png",
       url: "https://www.linkedin.com/company/e-cell-iiit-bh",
-      tooltip: "E-Cell IIIT Bhubaneswar — Coordinator & Graphic Designer"
+      tooltip: "E-Cell IIIT Bhubaneswar — Executive & Graphics lead"
     },
     {
       name: "IIT Madras",
@@ -93,7 +108,7 @@ const portfolioData = {
       name: "SSNL",
       role: "Cadet",
       logo: "./images/ssnl.png",
-      tooltip: "SSNL"
+      tooltip: "Sainik School Nalanda"
     }
   ],
   emailjs: {

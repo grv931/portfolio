@@ -218,6 +218,7 @@ article {
 }
 
 .socials-icons {
+    display: block;
     fill: url(#icon-gradient);
     stroke: url(#icon-gradient);
     transition: fill var(--transition-1), stroke var(--transition-1);
