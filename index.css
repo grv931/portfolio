@@ -212,8 +212,15 @@ article {
     z-index: 1
 }
 
+.icon-box ion-icon {
+    fill: url(#icon-gradient);
+    stroke: url(#icon-gradient);
+}
+
 .socials-icons {
-    color: var(--orange-yellow-crayola)
+    fill: url(#icon-gradient);
+    stroke: url(#icon-gradient);
+    transition: fill var(--transition-1), stroke var(--transition-1);
 }
 
 .icon-box::before {
@@ -479,6 +486,11 @@ main {
 
 .social-item .social-link:hover {
     color: var(--light-gray)
+}
+
+.social-item .social-link:hover .socials-icons {
+    fill: var(--white-1);
+    stroke: var(--white-1);
 }
 
 .social-item img {

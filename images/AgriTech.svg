@@ -1,6 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80px" height="80px" fill="none" stroke="#34afcb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M2 22C2 22 6 20 10 16L18 8C19.5 6.5 22 2 22 2C22 2 17.5 4.5 16 6L8 14C4 18 2 22 2 22Z" fill="#34afcb" fill-opacity="0.15"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="80px" height="80px" fill="none" stroke="url(#icon-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#72e2ae" />
+      <stop offset="100%" stop-color="#34afcb" />
+    </linearGradient>
+  </defs>
+  <path d="M2 22C2 22 6 20 10 16L18 8C19.5 6.5 22 2 22 2C22 2 17.5 4.5 16 6L8 14C4 18 2 22 2 22Z" fill="url(#icon-gradient)" fill-opacity="0.15"/>
   <path d="M9 13C9 13 12 14.5 14 12.5C16 10.5 15.5 7.5 15.5 7.5" stroke-dasharray="2 2"/>
-  <circle cx="18" cy="6" r="1.5" fill="#34afcb"/>
-  <circle cx="21" cy="3" r="1" fill="#34afcb"/>
+  <circle cx="18" cy="6" r="1.5" fill="url(#icon-gradient)"/>
+  <circle cx="21" cy="3" r="1" fill="url(#icon-gradient)"/>
 </svg>
