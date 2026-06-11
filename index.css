@@ -1609,3 +1609,15 @@ textarea.form-input::-webkit-resizer {
   height: 100%;
   border: none;
 }
+
+/* Background particle canvas styling */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--smoky-black);
+}
