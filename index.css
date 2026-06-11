@@ -224,6 +224,10 @@ article {
     transition: fill var(--transition-1), stroke var(--transition-1);
 }
 
+.socials-icons.custom-svg {
+    stroke: none;
+}
+
 .icon-box::before {
     content: "";
     position: absolute;
@@ -492,6 +496,10 @@ main {
 .social-item .social-link:hover .socials-icons {
     fill: var(--white-1);
     stroke: var(--white-1);
+}
+
+.social-item .social-link:hover .socials-icons.custom-svg {
+    stroke: none;
 }
 
 .social-item img {
