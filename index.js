@@ -64,30 +64,69 @@ socialList.innerHTML = portfolioData.profile.socials.map(soc => `
 const bioContainer = document.getElementById("bio-container");
 bioContainer.innerHTML = portfolioData.profile.bio.map(p => `<p>${p}</p>`).join("");
 
-// Populate projects list
+
+// Helper for project action button icons
+function getProjectLinkIcon(type) {
+  if (type === "github") {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>`;
+  } else if (type === "kaggle") {
+    return `<svg viewBox="0 0 512 512" width="13" height="13" fill="currentColor"><path d="M106,103c-.06,.3-.3,.4-.8,.4h-8c-.5,0-.9-.2-1.3-.6L82.746,86.028l-3.655,3.477v13c0,.6-.3,.9-.9,.9h-6.152c-.6,0-.9-.3-.9-.9V44c0-.6,.3-.9,.9-.9h6.1c.6,0,.9,.3,.9,.9v36l15.692-15.87c.416-.415,.832-.624,1.248-.624h8.204c.356,0,.593,.149,.713,.445c.119,.4,.1,.6-.1,.8L88,81C106,102,106,103,106,103" transform="scale(5.5,5.5) translate(-40,-30)"/></svg>`;
+  } else if (type === "notebook") {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
+  } else if (type === "paper") {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`;
+  }
+  return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+}
+
+// Populate horizontal projects list
 const projectsList = document.getElementById("projects-list");
 projectsList.innerHTML = portfolioData.projects.map(proj => `
-  <li class="service-item">
-    <div class="service-icon-box">
-      <img src="${proj.icon}" alt="${proj.title} icon" width="40">
-    </div>
-    <div class="service-content-box">
-      <h4 class="h4 service-item-title">${proj.title}</h4>
-      <p class="service-item-text">${proj.description}</p>
-      <p class="service-item-text" style="opacity: 0.8; font-size: 12px; margin-top: 4px; font-weight: 300;">
-        Made using: ${proj.tech.join(", ")}
-      </p>
-      ${proj.github
-    ? `<a href="${proj.github}" target="_blank" rel="noopener noreferrer" class="project-link" style="color: var(--orange-yellow-crayola, #72e2ae); font-size: 13px; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-weight: 500; text-decoration: none;">
-            <span>View Code</span>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
+  <li class="project-horizontal-card">
+    <div class="project-card-header">
+      <div class="project-title-group">
+        <div class="project-icon-box">
+          <img src="${proj.icon}" alt="${proj.title} icon" width="38" height="38">
+        </div>
+        <div class="project-title-content">
+          <div class="project-badge-row">
+            <span class="project-category-badge">${proj.category}</span>
+            ${proj.badge ? `<span class="project-type-pill">${proj.badge}</span>` : ""}
+          </div>
+          <h4 class="h4 project-card-title">${proj.title}</h4>
+        </div>
+      </div>
+      <div class="project-actions">
+        ${(proj.links || []).map(link => `
+          <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="project-action-btn ${link.type}-btn" title="${link.label}">
+            ${getProjectLinkIcon(link.type)}
+            <span>${link.label}</span>
+            <svg class="external-arrow" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17l10-10M17 17V7H7"/>
             </svg>
-           </a>`
-    : ""
-  }
+          </a>
+        `).join("")}
+      </div>
+    </div>
+
+    <div class="project-card-body">
+      <p class="project-overview-text">${proj.description}</p>
+      ${proj.highlights && proj.highlights.length > 0 ? `
+        <ul class="project-bullets-list">
+          ${proj.highlights.map(h => `
+            <li class="project-bullet-item">
+              <span class="bullet-indicator">▹</span>
+              <span class="bullet-text">${h}</span>
+            </li>
+          `).join("")}
+        </ul>
+      ` : ""}
+    </div>
+
+    <div class="project-card-footer">
+      <div class="project-tech-pills">
+        ${proj.tech.map(t => `<span class="tech-pill">${t}</span>`).join("")}
+      </div>
     </div>
   </li>
 `).join("");
