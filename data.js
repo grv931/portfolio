@@ -73,15 +73,49 @@ const portfolioData = {
       ]
     },
     {
+      id: "solar-tracker",
+      title: "Dual-Axis Solar Tracker Simulation",
+      category: "Control Systems & Renewable Energy",
+      badge: "Simulink & Simscape",
+      icon: "./images/SolarTracker.svg",
+      description: "Mathematical modeling and dynamic hardware simulation of a dual-axis solar tracking system with closed-loop PID control and automated nighttime reset sequence.",
+      highlights: [
+        "Developed a MATLAB/Simulink model to calculate the sun’s position and automatically orient a solar panel from sunrise to sunset.",
+        "Simulated hardware using Simscape and PID controllers, implementing a custom five-minute reset sequence to return the motors to their initial positions at night.",
+        "Calculated the daily solar energy captured, proving the dual-axis tracking system generated approximately 30% more energy than a standard fixed-angle panel."
+      ],
+      tech: ["MATLAB", "Simulink", "Simscape", "Control Systems", "PID Controller", "Renewable Energy"],
+      links: [
+        { type: "github", label: "View Code", url: "https://github.com/grv931" }
+      ]
+    },
+    {
+      id: "pasteurization-automation",
+      title: "Milk Pasteurization Plant Automation",
+      category: "Industrial Automation & SCADA",
+      badge: "PLC & Industrial IoT",
+      icon: "./images/PasteurizationPlant.svg",
+      description: "PLC-based industrial automation system modeling multi-stage dairy processing with real-time SCADA dashboard monitoring and Modbus TCP/IP communication.",
+      highlights: [
+        "Developed a PLC-based automation system to simulate milk processing stages, including storage, preheating, pasteurization, cooling, and cleaning (CIP).",
+        "Implemented process control and monitoring using OpenPLC and a Node-RED dashboard, enabling temperature monitoring, equipment control, and alarm display.",
+        "Integrated OpenPLC and Node-RED via Modbus TCP/IP to exchange control commands and process data, implementing temperature-based product diversion logic."
+      ],
+      tech: ["OpenPLC", "Node-RED", "Modbus TCP/IP", "PLC Programming", "SCADA", "Process Control"],
+      links: [
+        { type: "github", label: "View Code", url: "https://github.com/grv931" }
+      ]
+    },
+    {
       id: "thoracic-pathology",
       title: "Thoracic Pathology Detection Model",
       category: "Computer Vision & Medical AI",
       badge: "Deep Learning",
       icon: "./images/ThoracicPathology.svg",
-      description: "Transfer learning diagnostic pipeline trained on 51K+ chest X-ray images to accurately detect and classify 20 distinct thoracic pathologies.",
+      description: "Transfer learning diagnostic pipeline trained on 51K+ chest X-ray images to accurately detect and classify 20 mutually exclusive thoracic pathologies.",
       highlights: [
-        "Built a transfer learning pipeline on 51K+ chest X-ray images to classify 20 thoracic pathologies using DenseNet121 and Keras.",
-        "Used class weighting and a custom loss function to address 66% class imbalance and reduce the impact of false negatives in medical diagnosis."
+        "Developed a transfer-learning pipeline by fine-tuning DenseNet121 on over 51,000 chest X-ray images to classify 20 mutually exclusive thoracic pathologies using Keras.",
+        "Implemented a custom asymmetric loss function (γ− = 4, γ+ = 1) with class weighting to address class imbalance and prioritize false negatives, which were penalized five times more heavily than false positives."
       ],
       tech: ["Python", "ML", "Computer Vision", "PyTorch", "Keras", "DenseNet121", "Medical Imaging"],
       links: [
