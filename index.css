@@ -608,6 +608,7 @@ main {
     box-shadow: var(--shadow-2);
     z-index: 1;
     overflow: hidden;
+    cursor: pointer;
     transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.28s cubic-bezier(0.2, 0, 0, 1), background 0.28s ease;
 }
 
@@ -703,12 +704,36 @@ main {
     border-radius: 20px;
 }
 
+.project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
 .project-card-title {
     font-size: 18px;
     font-weight: var(--fw-600);
     color: var(--white-1);
     line-height: 1.35;
     transition: color 0.25s ease;
+}
+
+.project-expand-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange-yellow-crayola);
+    opacity: 0.65;
+    transition: opacity 0.25s ease, transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-horizontal-card:hover .project-expand-indicator {
+    opacity: 1;
+}
+
+.project-horizontal-card.expanded .project-expand-indicator {
+    transform: rotate(180deg);
+    color: var(--vegas-gold);
 }
 
 .project-horizontal-card:hover .project-card-title {
@@ -761,6 +786,33 @@ main {
     transform: translate(2px, -2px);
 }
 
+.project-action-btn.live-btn {
+    background: linear-gradient(135deg, hsla(151, 65%, 66%, 0.18) 0%, hsla(191, 59%, 50%, 0.18) 100%);
+    border-color: hsla(151, 65%, 66%, 0.5);
+    color: var(--orange-yellow-crayola);
+    box-shadow: 0 0 10px hsla(151, 65%, 66%, 0.12);
+}
+
+.project-action-btn.live-btn:hover {
+    background: linear-gradient(135deg, hsla(151, 65%, 66%, 0.3) 0%, hsla(191, 59%, 50%, 0.3) 100%);
+    box-shadow: 0 4px 14px hsla(151, 65%, 66%, 0.3);
+}
+
+.current-site-indicator {
+    font-size: 11px;
+    font-weight: var(--fw-500);
+    color: var(--orange-yellow-crayola);
+    margin-left: 8px;
+    padding: 2px 8px;
+    background: hsla(151, 65%, 66%, 0.12);
+    border: 1px solid hsla(151, 65%, 66%, 0.35);
+    border-radius: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+    text-transform: none;
+}
+
 /* Project Card Body */
 .project-card-body {
     margin-bottom: 16px;
@@ -770,15 +822,43 @@ main {
     font-size: 14px;
     color: var(--light-gray);
     line-height: 1.6;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: var(--fw-300);
+}
+
+
+/* Bullet Points Smooth Expand/Collapse */
+.project-bullets-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-horizontal-card.expanded .project-bullets-wrapper {
+    grid-template-rows: 1fr;
+}
+
+.project-bullets-inner {
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-horizontal-card.expanded .project-bullets-inner {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-bullets-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 8px 0 12px 0;
+    gap: 9px;
+    margin: 10px 0 6px 0;
+    padding: 12px 16px;
+    background: hsla(240, 2%, 11%, 0.65);
+    border-left: 2.5px solid var(--orange-yellow-crayola);
+    border-radius: 0 10px 10px 0;
 }
 
 .project-bullet-item {
@@ -787,7 +867,7 @@ main {
     gap: 10px;
     font-size: 13.5px;
     line-height: 1.6;
-    color: hsl(0, 0%, 82%);
+    color: hsl(0, 0%, 84%);
 }
 
 .bullet-indicator {
@@ -986,6 +1066,8 @@ main {
 .clients-item img {
     width: 100%;
     filter: grayscale(1);
+    cursor: default;
+    user-select: none;
     transition: var(--transition-1)
 }
 

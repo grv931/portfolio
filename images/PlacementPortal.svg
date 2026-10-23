@@ -1,13 +1,19 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#72e2ae" />
-    <stop offset="100%" stop-color="#34afcb" />
-  </linearGradient>
-</defs>
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2H0V14H16V2ZM5 10.5C6.38071 10.5 7.5 9.38071 7.5 8C7.5 6.61929 6.38071 5.5 5 5.5C3.61929 5.5 2.5 6.61929 2.5 8C2.5 9.38071 3.61929 10.5 5 10.5ZM10 5H14V7H10V5ZM14 9H10V11H14V9Z" fill="url(#icon-gradient)"/> </g>
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#72e2ae" />
+      <stop offset="100%" stop-color="#34afcb" />
+    </linearGradient>
+  </defs>
+  <!-- Academic Mortarboard Diamond (Campus / University Talent) -->
+  <path d="M12 2.5L2 7.5L12 12.5L22 7.5L12 2.5Z" stroke="url(#icon-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="url(#icon-gradient)" fill-opacity="0.15"/>
+  <!-- Center Cap Button -->
+  <circle cx="12" cy="7.5" r="1" fill="url(#icon-gradient)"/>
+  <!-- Hanging Tassel Cord & Fringe -->
+  <path d="M20 8.5V14M19 14H21" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Skullcap Base Band -->
+  <path d="M6 9.8V13C6 14.6 8.7 15.8 12 15.8C15.3 15.8 18 14.6 18 13V9.8" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Professional Collar & Tie (Campus-to-Corporate Placement) -->
+  <path d="M8.5 16.5L12 18.5L15.5 16.5" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 18.5H13L13.8 21.6L12 23L10.2 21.6L11 18.5Z" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linejoin="round" fill="url(#icon-gradient)" fill-opacity="0.25"/>
 </svg>
