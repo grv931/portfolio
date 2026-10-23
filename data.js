@@ -42,7 +42,7 @@ const portfolioData = {
       title: "Placement Portal Application V2",
       category: "Full-Stack Web Platform",
       badge: "Full-Stack",
-      icon: "./images/SkillFleet.svg",
+      icon: "./images/PlacementPortal.svg",
       description: "A decoupled campus recruitment platform connecting students, companies, and administration through a unified application tracking system.",
       highlights: [
         "Engineered a decoupled full-stack campus recruitment platform connecting students, companies, and administration through a unified application tracking system.",
@@ -51,7 +51,8 @@ const portfolioData = {
       ],
       tech: ["Flask", "Vue.js", "SQLite", "Redis", "Celery", "JWT", "REST API"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931/SkillFleet" }
+        { type: "live", label: "Live Demo", url: "https://placement-portal-application-v2-4y0r.onrender.com/#/login" },
+        { type: "github", label: "View Code", url: "https://github.com/grv931/Placement-Portal-Application-v2" }
       ]
     },
     {
@@ -68,8 +69,7 @@ const portfolioData = {
       ],
       tech: ["Python", "ML", "Data Analysis", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931/Comment-Category-Prediction" },
-        { type: "notebook", label: "Notebook", url: "https://github.com/grv931/Comment-Category-Prediction" }
+        { type: "github", label: "View Code", url: "https://github.com/grv931/Comment-Category-Classification" }
       ]
     },
     {
@@ -86,7 +86,7 @@ const portfolioData = {
       ],
       tech: ["MATLAB", "Simulink", "Simscape", "Control Systems", "PID Controller", "Renewable Energy"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931" }
+        { type: "github", label: "View Code", url: "https://github.com/grv931/SolisSync" }
       ]
     },
     {
@@ -103,7 +103,7 @@ const portfolioData = {
       ],
       tech: ["OpenPLC", "Node-RED", "Modbus TCP/IP", "PLC Programming", "SCADA", "Process Control"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931" }
+        { type: "github", label: "View Code", url: "https://github.com/grv931/Milk-Pasteurization-Plant-Automation" }
       ]
     },
     {
@@ -119,7 +119,7 @@ const portfolioData = {
       ],
       tech: ["Python", "ML", "Computer Vision", "PyTorch", "Keras", "DenseNet121", "Medical Imaging"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931/Thoracic-Pathology-Detection" },
+        { type: "github", label: "View Code", url: "https://github.com/grv931/Thoracic-Pathology-Detection-Model" },
         { type: "kaggle", label: "Kaggle", url: "https://www.kaggle.com/kumargaurav931" }
       ]
     },
@@ -153,12 +153,12 @@ const portfolioData = {
       ],
       tech: ["PyTorch", "cGAN", "Deep Learning", "Computer Vision", "Python"],
       links: [
-        { type: "github", label: "View Code", url: "https://github.com/grv931/Agri-Tech-Image-Super-Resolution" }
+        { type: "github", label: "View Code", url: "https://github.com/grv931/Agri-Tech-Image-Super-Resolution-Model" }
       ]
     },
     {
       id: "developer-portfolio",
-      title: "Interactive Developer Portfolio",
+      title: "My Portfolio (You are here)",
       category: "Frontend & UI/UX",
       badge: "Interactive Web",
       icon: "./images/Portfolio.svg",
@@ -179,7 +179,6 @@ const portfolioData = {
       name: "IIIT Bhubaneswar",
       role: "B.Tech Student (EEE)",
       logo: "./images/iiitbh.png",
-      url: "https://www.iiit-bh.ac.in",
       tooltip: "IIIT Bhubaneswar — B.Tech in Electrical & Electronics Engineering (Undergraduate, 2023–2027)"
     },
     {
@@ -192,7 +191,6 @@ const portfolioData = {
       name: "E-Cell IIIT Bhubaneswar",
       role: "Content & Graphics Lead",
       logo: "./images/ecell.png",
-      url: "https://www.linkedin.com/company/e-cell-iiit-bh",
       tooltip: "E-Cell IIIT Bhubaneswar — Content & Graphics Lead (E-Summit 2025)"
     },
     {

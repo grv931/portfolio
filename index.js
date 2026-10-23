@@ -75,25 +75,38 @@ function getProjectLinkIcon(type) {
     return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`;
   } else if (type === "paper") {
     return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`;
+  } else if (type === "live") {
+    return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`;
   }
   return `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 }
 
 // Populate horizontal projects list
 const projectsList = document.getElementById("projects-list");
-projectsList.innerHTML = portfolioData.projects.map(proj => `
+projectsList.innerHTML = portfolioData.projects.map(proj => {
+  const formattedTitle = proj.title.replace(/\(You are here\)/i, `<span class="current-site-indicator">(You are here)</span>`);
+  return `
   <li class="project-horizontal-card">
     <div class="project-card-header">
       <div class="project-title-group">
         <div class="project-icon-box">
-          <img src="${proj.icon}" alt="${proj.title} icon" width="38" height="38">
+          <img src="${proj.icon}?v=1.0.8" alt="${proj.title} icon" width="38" height="38">
         </div>
         <div class="project-title-content">
           <div class="project-badge-row">
             <span class="project-category-badge">${proj.category}</span>
             ${proj.badge ? `<span class="project-type-pill">${proj.badge}</span>` : ""}
           </div>
-          <h4 class="h4 project-card-title">${proj.title}</h4>
+          <div class="project-title-row">
+            <h4 class="h4 project-card-title">${formattedTitle}</h4>
+            ${proj.highlights && proj.highlights.length > 0 ? `
+              <span class="project-expand-indicator" title="Click to view details">
+                <svg class="card-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            ` : ""}
+          </div>
         </div>
       </div>
       <div class="project-actions">
@@ -112,14 +125,18 @@ projectsList.innerHTML = portfolioData.projects.map(proj => `
     <div class="project-card-body">
       <p class="project-overview-text">${proj.description}</p>
       ${proj.highlights && proj.highlights.length > 0 ? `
-        <ul class="project-bullets-list">
-          ${proj.highlights.map(h => `
-            <li class="project-bullet-item">
-              <span class="bullet-indicator">▹</span>
-              <span class="bullet-text">${h}</span>
-            </li>
-          `).join("")}
-        </ul>
+        <div class="project-bullets-wrapper">
+          <div class="project-bullets-inner">
+            <ul class="project-bullets-list">
+              ${proj.highlights.map(h => `
+                <li class="project-bullet-item">
+                  <span class="bullet-indicator">▹</span>
+                  <span class="bullet-text">${h}</span>
+                </li>
+              `).join("")}
+            </ul>
+          </div>
+        </div>
       ` : ""}
     </div>
 
@@ -129,18 +146,26 @@ projectsList.innerHTML = portfolioData.projects.map(proj => `
       </div>
     </div>
   </li>
-`).join("");
+  `;
+}).join("");
 
-// Populate organizations
+// Toggle expandable project highlights on card click
+document.querySelectorAll(".project-horizontal-card").forEach(card => {
+  card.addEventListener("click", function (e) {
+    // If the click is on an anchor or action button, do not toggle accordion
+    if (e.target.closest("a") || e.target.closest(".project-actions")) {
+      return;
+    }
+
+    this.classList.toggle("expanded");
+  });
+});
+
+// Populate organizations (logos without links)
 const orgsList = document.getElementById("orgs-list");
 orgsList.innerHTML = portfolioData.organizations.map(org => `
   <li class="clients-item" title="${org.tooltip}">
-    ${org.url
-    ? `<a href="${org.url}" target="_blank" rel="noopener noreferrer">
-          <img src="${org.logo}" alt="${org.name} logo">
-         </a>`
-    : `<img src="${org.logo}" alt="${org.name} logo">`
-  }
+    <img src="${org.logo}" alt="${org.name} logo">
   </li>
 `).join("");
 

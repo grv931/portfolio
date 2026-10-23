@@ -5,6 +5,15 @@
       <stop offset="100%" stop-color="#34afcb" />
     </linearGradient>
   </defs>
-  <!-- EV Charger outline & lightning pulse -->
-  <path d="M19 5H18V4C18 2.89543 17.1046 2 16 2H8C6.89543 2 6 2.89543 6 4V20C6 21.1046 6.89543 22 8 22H16C17.1046 22 18 21.1046 18 20V14H19C20.1046 14 21 13.1046 21 12V7C21 5.89543 20.1046 5 19 5ZM11 6V11H8.5L13 18V13H15.5L11 6Z" fill="url(#icon-gradient)"/>
+  <!-- EV Charger Station Body -->
+  <rect x="3" y="3" width="11" height="18" rx="2.5" stroke="url(#icon-gradient)" stroke-width="2"/>
+  <!-- Station Base -->
+  <path d="M2 21H15" stroke="url(#icon-gradient)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Screen / Display -->
+  <rect x="6" y="6" width="5" height="3" rx="1" fill="url(#icon-gradient)" fill-opacity="0.2" stroke="url(#icon-gradient)" stroke-width="1.2"/>
+  <!-- Dynamic Lightning Bolt Symbol inside charger -->
+  <path d="M9 11L7 14.5H10L8 18" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flexible Cable & Charging Connector Nozzle -->
+  <path d="M14 7H17C18.1046 7 19 7.89543 19 9V14C19 14.8 19.4 15.5 20 16" stroke="url(#icon-gradient)" stroke-width="1.8" stroke-linecap="round"/>
+  <rect x="18.5" y="15.5" width="3.5" height="4.5" rx="1" stroke="url(#icon-gradient)" stroke-width="1.5" fill="url(#icon-gradient)" fill-opacity="0.2"/>
 </svg>
